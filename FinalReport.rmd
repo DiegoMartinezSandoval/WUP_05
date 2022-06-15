@@ -21,11 +21,11 @@ A new  preventative aids drug (triUmpsal) is under test in clinical trials. Cons
 
 $H_0$: There is no correlation between the two. The drug doesn't work: you have the same likelihood of contracting aids if you did or did not take the drug
 
-$H_A$: There is a correlation. The drug was effective in preventing females from contracting the virus. 
+$H_A$: There is a correlation. The drug was effective in preventing females from contracting the virus. You don't have the same likelihood if you do or do not take the drug. 
 
 # Methods
 
-Since both of our variables are categorical, we will use our bar plote woth a ch-square test and a fisher exact test. 
+Since both of our variables are categorical, we will use our bar plot with a ch-square test and a fisher exact test. We can't use a T.test or an AOV because it's Cat & Cat 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
@@ -47,6 +47,14 @@ The drug appears to make women more susceptible to the virus.
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
 ### Numerical Descriptive Results
+
+```{r}
+table1 <- xtabs(~infected + treatment, data=Females)
+rowPerc(table1)
+colPerc(table1)
+```
+
+The table shows that if a female were to get the vaccine, they would be 1.4x more likely to contract the virus in comparison to the placebo. 
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
