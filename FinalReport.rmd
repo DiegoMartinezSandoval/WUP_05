@@ -25,7 +25,7 @@ $H_A$: There is a correlation. The drug was effective in preventing females from
 
 # Methods
 
-Since both of our variables are categorical, we will use our bar plot with a ch-square test and a fisher exact test. We can't use a T.test or an AOV because it's Cat & Cat 
+Since both of our variables are categorical, we will use our bar plot with a ch-square test and a fisher exact test. We can't use a T.test or an AOV because it's Cat & Cat. 
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
 
@@ -42,7 +42,7 @@ barchartGC(~infected + treatment,data=Females)
 barchartGC(~infected + treatment,data=Females, type="percent")
 ```
 
-The drug appears to make women more susceptible to the virus. 
+The drug appears to make women more susceptible to the virus. Since the bar chart value increases in the aid department when females take the vaccine. A raise in this scenario, is something we want to avoid and means thatthe vaccine is worse than not taking anything. 
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
@@ -59,6 +59,14 @@ The table shows that if a female were to get the vaccine, they would be 1.4x mor
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
 ## Inferential Results
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+
+The null hypotheses has to be rejected because the  P-value is .0000766. The P-value is not greater than .05 so the likelihood of getting these results is way too low. The fisher exact table is also significant in showing that we rejectthe null hypotheses because our p-value is .00006
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
